@@ -53,6 +53,9 @@
 			children = (
 				F857B5042865D4D6000AD173 /* NewsDemoApp.swift */,
 				F857B5062865D4D6000AD173 /* ContentView.swift */,
+				F857B5142865D4F6000AD173 /* Views */,
+				F857B5132865D4EE000AD173 /* ViewModels */,
+				F857B5122865D4E9000AD173 /* Models */,
 				F857B5082865D4D7000AD173 /* Assets.xcassets */,
 				F857B50A2865D4D7000AD173 /* Preview Content */,
 			);
@@ -65,6 +68,27 @@
 				F857B50B2865D4D7000AD173 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F857B5122865D4E9000AD173 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F857B5132865D4EE000AD173 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F857B5142865D4F6000AD173 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
