@@ -7,21 +7,27 @@
 
 import Foundation
 
+fileprivate let relativeDateFormatter = RelativeDateTimeFormatter()
+
 
 struct Article {
     let source: Source
-    let title: String
-    let url: String
-    let publishedAt: Date
     let author: String?
+    let title: String
     let description: String?
+    let url: String
     let urlToImage: String?
+    let publishedAt: Date
+    
     
     var authorText: String {
         author ?? ""
     }
     var descriptionText: String {
         description ?? ""
+    }
+    var captionText: String {
+        "\(source.name) ⋅ \(relativeDateFormatter.localizedString(for: publishedAt, relativeTo: Date()))"
     }
     var articleURL: URL {
         URL(string: url)!
@@ -45,19 +51,6 @@ extension Article: Codable {
 
 extension Article: Equatable {
     
-}
-
-extension Article {
-    static var previewData: [Article] {
-        let previewDataURL = Bundle.main.url(forResource: "news", withExtension: "json")!
-        let data = try! Data(contentsOf: previewDataURL)
-        
-        let jsonDecoder = JSONDecoder()
-        jsonDecoder.dataDecodingStrategy = .deferredToData
-        
-        let apiResponse = try! jsonDecoder.decode(NewsAPIResponse.self, from: data)
-        return apiResponse.articles 
-    }
 }
 
 extension Article: Identifiable {
