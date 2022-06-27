@@ -14,6 +14,7 @@ struct ArticlePreview {
         let data = try! Data(contentsOf: previewDataURL)
 
         let jsonDecoder = JSONDecoder()
+        // FIXME: .iso8601
         //jsonDecoder.dataDecodingStrategy = .iso8601
 
         let apiResponse = try! jsonDecoder.decode(NewsAPIResponse.self, from: data)
