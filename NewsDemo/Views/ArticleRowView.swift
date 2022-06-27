@@ -39,6 +39,9 @@ struct ArticleRowView: View {
                     .font(.headline)
                     .lineLimit(3)
                 
+                //Text("\(ArticlePreview.articlesD[0].title);")
+                    .foregroundColor(.red)
+                
                 Text(article.descriptionText)
                     .font(.subheadline)
                     .lineLimit(2)
@@ -50,6 +53,7 @@ struct ArticleRowView: View {
                     
                     Spacer()
                     
+                    // MARK: - Bookmark Button
                     Button {
                         // FIXME: Action
                     } label: {
@@ -57,14 +61,15 @@ struct ArticleRowView: View {
                     }
                     .buttonStyle(.bordered)
                     
+                    
+                    // MARK: - Share Button
                     Button {
-                        // FIXME: Action
+                        presentShareSheet(url: article.articleURL)
                     } label: {
                         Image(systemName: "square.and.arrow.up")
                     }
                     .buttonStyle(.bordered)
 
-                    
                 }
                 .padding(.vertical)
             }

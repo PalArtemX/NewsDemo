@@ -13,6 +13,9 @@
 		F8408A2928671F7C00475642 /* ArticlePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8408A2828671F7C00475642 /* ArticlePreview.swift */; };
 		F8408A2B2869B0F000475642 /* ArticleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8408A2A2869B0F000475642 /* ArticleListView.swift */; };
 		F8408A2D2869B62A00475642 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8408A2C2869B62A00475642 /* SafariView.swift */; };
+		F8408A302869B8D600475642 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8408A2F2869B8D600475642 /* ViewExtension.swift */; };
+		F8408A322869BAC800475642 /* NewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8408A312869BAC800475642 /* NewsAPI.swift */; };
+		F8408A352869BC4200475642 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8408A342869BC4200475642 /* Category.swift */; };
 		F857B5052865D4D6000AD173 /* NewsDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F857B5042865D4D6000AD173 /* NewsDemoApp.swift */; };
 		F857B5072865D4D6000AD173 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F857B5062865D4D6000AD173 /* ContentView.swift */; };
 		F857B5092865D4D7000AD173 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F857B5082865D4D7000AD173 /* Assets.xcassets */; };
@@ -27,6 +30,9 @@
 		F8408A2828671F7C00475642 /* ArticlePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlePreview.swift; sourceTree = "<group>"; };
 		F8408A2A2869B0F000475642 /* ArticleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListView.swift; sourceTree = "<group>"; };
 		F8408A2C2869B62A00475642 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		F8408A2F2869B8D600475642 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		F8408A312869BAC800475642 /* NewsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAPI.swift; sourceTree = "<group>"; };
+		F8408A342869BC4200475642 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		F857B5012865D4D6000AD173 /* NewsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F857B5042865D4D6000AD173 /* NewsDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDemoApp.swift; sourceTree = "<group>"; };
 		F857B5062865D4D6000AD173 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,6 +52,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F8408A2E2869B88C00475642 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F8408A2F2869B8D600475642 /* ViewExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F8408A332869BB5100475642 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				F8408A312869BAC800475642 /* NewsAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		F857B4F82865D4D6000AD173 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +92,8 @@
 				F857B5142865D4F6000AD173 /* Views */,
 				F857B5132865D4EE000AD173 /* ViewModels */,
 				F857B5122865D4E9000AD173 /* Models */,
+				F8408A2E2869B88C00475642 /* Extensions */,
+				F8408A332869BB5100475642 /* API */,
 				F857B5082865D4D7000AD173 /* Assets.xcassets */,
 				F857B50A2865D4D7000AD173 /* Preview Content */,
 			);
@@ -91,6 +115,7 @@
 			children = (
 				F8408A222866112400475642 /* Article.swift */,
 				F8408A242866164000475642 /* NewsAPIResponse.swift */,
+				F8408A342869BC4200475642 /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -183,14 +208,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8408A302869B8D600475642 /* ViewExtension.swift in Sources */,
 				F857B5072865D4D6000AD173 /* ContentView.swift in Sources */,
 				F8408A2B2869B0F000475642 /* ArticleListView.swift in Sources */,
 				F8408A2728671EF900475642 /* ArticleRowView.swift in Sources */,
 				F8408A2D2869B62A00475642 /* SafariView.swift in Sources */,
 				F857B5052865D4D6000AD173 /* NewsDemoApp.swift in Sources */,
 				F8408A2928671F7C00475642 /* ArticlePreview.swift in Sources */,
+				F8408A322869BAC800475642 /* NewsAPI.swift in Sources */,
 				F8408A252866164000475642 /* NewsAPIResponse.swift in Sources */,
 				F8408A232866112400475642 /* Article.swift in Sources */,
+				F8408A352869BC4200475642 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +355,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -356,6 +385,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

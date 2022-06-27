@@ -9,16 +9,16 @@ import Foundation
 
 
 struct ArticlePreview {
-//    static var articles: [Article] {
-//        let previewDataURL = Bundle.main.url(forResource: "news", withExtension: "json")!
-//        let data = try! Data(contentsOf: previewDataURL)
-//
-//        let jsonDecoder = JSONDecoder()
-//        jsonDecoder.dataDecodingStrategy = .deferredToData
-//
-//        let apiResponse = try! jsonDecoder.decode(NewsAPIResponse.self, from: data)
-//        return apiResponse.articles
-//    }
+    static var articlesD: [Article] {
+        let previewDataURL = Bundle.main.url(forResource: "news", withExtension: "json")!
+        let data = try! Data(contentsOf: previewDataURL)
+
+        let jsonDecoder = JSONDecoder()
+        //jsonDecoder.dataDecodingStrategy = .iso8601
+
+        let apiResponse = try! jsonDecoder.decode(NewsAPIResponse.self, from: data)
+        return apiResponse.articles
+    }
     
     static let articles = [
         
