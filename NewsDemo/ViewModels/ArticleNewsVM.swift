@@ -10,7 +10,7 @@ import Foundation
 @MainActor
 class ArticleNewsVM: ObservableObject {
     @Published var phase = DataFetchPhase<[Article]>.empty
-    @Published var selectedCategory: Category
+    @Published var fetchTaskToken: FetchTaskToken
     private let newAPI = NewsAPI.shared
     
     // MARK: - init
@@ -20,19 +20,22 @@ class ArticleNewsVM: ObservableObject {
         } else {
             phase = .empty
         }
-        self.selectedCategory = selectedCategory
+        self.fetchTaskToken = FetchTaskToken(category: selectedCategory, token: Date())
     }
     
     
     // MARK: - Functions
     // MARK: loadArticles
     func loadArticles() async {
+        if Task.isCancelled { return }
         phase = .empty
         
         do {
-            let articles = try await newAPI.fetch(from: selectedCategory)
+            let articles = try await newAPI.fetch(from: fetchTaskToken.category)
+            if Task.isCancelled { return }
             phase = .success(articles)
         } catch {
+            if Task.isCancelled { return }
             print("⚠️ Error: loadArticles() \(error.localizedDescription)")
             print(String(describing: error))
             phase = .failure(error)

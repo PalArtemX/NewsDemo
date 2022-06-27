@@ -38,9 +38,7 @@ struct ArticleRowView: View {
                 Text(article.title)
                     .font(.headline)
                     .lineLimit(3)
-                
-                //Text("\(ArticlePreview.articlesD[0].title);")
-                    .foregroundColor(.red)
+
                 
                 Text(article.descriptionText)
                     .font(.subheadline)

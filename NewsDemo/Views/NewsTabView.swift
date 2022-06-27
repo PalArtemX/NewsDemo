@@ -9,7 +9,6 @@ import SwiftUI
 
 struct NewsTabView: View {
     @EnvironmentObject var articleNewsVM: ArticleNewsVM
-    
     private var articles: [Article] {
         if case let .success(articles) = articleNewsVM.phase {
             return articles
@@ -21,12 +20,17 @@ struct NewsTabView: View {
     var body: some View {
         NavigationStack {
             ArticleListView(articles: articles)
-                .onAppear {
-                    Task {
-                        await articleNewsVM.loadArticles()
-                    }
+                .overlay(overlayView)
+                .task(id: articleNewsVM.fetchTaskToken) {
+                    await loadTask()
                 }
-                .navigationTitle(articleNewsVM.selectedCategory.text)
+                .refreshable {
+                    refreshTask()
+                }
+                .navigationTitle(articleNewsVM.fetchTaskToken.category.text)
+                .toolbar {
+                    menu
+                }
         }
     }
 }
@@ -46,4 +50,57 @@ struct NewsTabView_Previews: PreviewProvider {
             .environmentObject(ArticleNewsVM(articles: ArticlePreview.articles, selectedCategory: .general))
             
     }
+}
+
+
+
+
+
+// MARK: - Extension NewsTabView
+extension NewsTabView {
+    // MARK: overlayView
+    private var overlayView: some View {
+        Group {
+            switch articleNewsVM.phase {
+            case .empty:
+                ProgressView()
+            case .success(let articles) where articles.isEmpty:
+                EmptyPlaceholderView(text: "No Articles", image: nil)
+            case .failure(let error):
+                RetryView(text: error.localizedDescription) {
+                   refreshTask()
+                }
+            default:
+                EmptyView()
+            }
+        }
+    }
+    
+    // MARK: menu
+    private var menu: some View {
+        Menu {
+            Picker("Category", selection: $articleNewsVM.fetchTaskToken.category) {
+                ForEach(Category.allCases) {
+                    Text($0.text)
+                        .tag($0)
+                }
+            }
+        } label: {
+            Image(systemName: "fiberchannel")
+                .symbolRenderingMode(.hierarchical)
+                .imageScale(.large)
+        }
+
+    }
+    
+    // MARK: loadTask()
+    private func loadTask() async {
+        await articleNewsVM.loadArticles()
+    }
+    
+    // MARK:
+    private func refreshTask() {
+        articleNewsVM.fetchTaskToken = FetchTaskToken(category: articleNewsVM.fetchTaskToken.category, token: Date())
+    }
+    
 }
