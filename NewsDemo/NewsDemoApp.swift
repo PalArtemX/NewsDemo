@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct NewsDemoApp: App {
+    @StateObject var articleNewVM = ArticleNewsVM()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
+                .environmentObject(articleNewVM)
         }
     }
 }

@@ -14,7 +14,7 @@ class ArticleNewsVM: ObservableObject {
     private let newAPI = NewsAPI.shared
     
     // MARK: - init
-    init(articles: [Article]? = nil, selectedCategory: Category) {
+    init(articles: [Article]? = nil, selectedCategory: Category = .general) {
         if let articles = articles {
             phase = .success(articles)
         } else {
@@ -33,6 +33,8 @@ class ArticleNewsVM: ObservableObject {
             let articles = try await newAPI.fetch(from: selectedCategory)
             phase = .success(articles)
         } catch {
+            print("⚠️ Error: loadArticles() \(error.localizedDescription)")
+            print(String(describing: error))
             phase = .failure(error)
         }
     }

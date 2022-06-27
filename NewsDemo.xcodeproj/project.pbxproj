@@ -17,12 +17,13 @@
 		F8408A322869BAC800475642 /* NewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8408A312869BAC800475642 /* NewsAPI.swift */; };
 		F8408A352869BC4200475642 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8408A342869BC4200475642 /* Category.swift */; };
 		F857B5052865D4D6000AD173 /* NewsDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F857B5042865D4D6000AD173 /* NewsDemoApp.swift */; };
-		F857B5072865D4D6000AD173 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F857B5062865D4D6000AD173 /* ContentView.swift */; };
 		F857B5092865D4D7000AD173 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F857B5082865D4D7000AD173 /* Assets.xcassets */; };
 		F857B50C2865D4D7000AD173 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F857B50B2865D4D7000AD173 /* Preview Assets.xcassets */; };
 		F857B5162865D6D1000AD173 /* news.json in Resources */ = {isa = PBXBuildFile; fileRef = F857B5152865D6D1000AD173 /* news.json */; };
 		F8D522D02869E274001B1B5D /* ArticleNewsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D522CF2869E274001B1B5D /* ArticleNewsVM.swift */; };
 		F8D522D22869E54A001B1B5D /* DataFetchPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D522D12869E54A001B1B5D /* DataFetchPhase.swift */; };
+		F8D522D42869EB83001B1B5D /* NewsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D522D32869EB83001B1B5D /* NewsTabView.swift */; };
+		F8D522D62869EF38001B1B5D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D522D52869EF38001B1B5D /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,12 +38,14 @@
 		F8408A342869BC4200475642 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		F857B5012865D4D6000AD173 /* NewsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F857B5042865D4D6000AD173 /* NewsDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDemoApp.swift; sourceTree = "<group>"; };
-		F857B5062865D4D6000AD173 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F857B5082865D4D7000AD173 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F857B50B2865D4D7000AD173 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F857B5152865D6D1000AD173 /* news.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = news.json; sourceTree = "<group>"; };
 		F8D522CF2869E274001B1B5D /* ArticleNewsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleNewsVM.swift; sourceTree = "<group>"; };
 		F8D522D12869E54A001B1B5D /* DataFetchPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetchPhase.swift; sourceTree = "<group>"; };
+		F8D522D32869EB83001B1B5D /* NewsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTabView.swift; sourceTree = "<group>"; };
+		F8D522D52869EF38001B1B5D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		F8D522D72869F189001B1B5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,8 +94,8 @@
 		F857B5032865D4D6000AD173 /* NewsDemo */ = {
 			isa = PBXGroup;
 			children = (
+				F8D522D72869F189001B1B5D /* Info.plist */,
 				F857B5042865D4D6000AD173 /* NewsDemoApp.swift */,
-				F857B5062865D4D6000AD173 /* ContentView.swift */,
 				F857B5142865D4F6000AD173 /* Views */,
 				F857B5132865D4EE000AD173 /* ViewModels */,
 				F857B5122865D4E9000AD173 /* Models */,
@@ -136,6 +139,8 @@
 		F857B5142865D4F6000AD173 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F8D522D52869EF38001B1B5D /* MainView.swift */,
+				F8D522D32869EB83001B1B5D /* NewsTabView.swift */,
 				F8408A2628671EF900475642 /* ArticleRowView.swift */,
 				F8408A2A2869B0F000475642 /* ArticleListView.swift */,
 				F8408A2C2869B62A00475642 /* SafariView.swift */,
@@ -215,12 +220,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8408A302869B8D600475642 /* ViewExtension.swift in Sources */,
-				F857B5072865D4D6000AD173 /* ContentView.swift in Sources */,
+				F8D522D62869EF38001B1B5D /* MainView.swift in Sources */,
 				F8D522D02869E274001B1B5D /* ArticleNewsVM.swift in Sources */,
 				F8408A2B2869B0F000475642 /* ArticleListView.swift in Sources */,
 				F8408A2728671EF900475642 /* ArticleRowView.swift in Sources */,
 				F8408A2D2869B62A00475642 /* SafariView.swift in Sources */,
 				F857B5052865D4D6000AD173 /* NewsDemoApp.swift in Sources */,
+				F8D522D42869EB83001B1B5D /* NewsTabView.swift in Sources */,
 				F8408A2928671F7C00475642 /* ArticlePreview.swift in Sources */,
 				F8408A322869BAC800475642 /* NewsAPI.swift in Sources */,
 				F8D522D22869E54A001B1B5D /* DataFetchPhase.swift in Sources */,
@@ -358,6 +364,7 @@
 				DEVELOPMENT_TEAM = H5J3S6F67R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NewsDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -388,6 +395,7 @@
 				DEVELOPMENT_TEAM = H5J3S6F67R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NewsDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
