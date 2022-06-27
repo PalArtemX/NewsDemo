@@ -11,7 +11,7 @@ struct ArticleRowView: View {
     let article: Article
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 16.0) {
+        VStack(spacing: 16.0) {
             // MARK: - Image
             AsyncImage(url: article.imageURL) { phase in
                 switch phase {
@@ -34,7 +34,7 @@ struct ArticleRowView: View {
             .clipped()
             
             // MARK: - Text
-            VStack(alignment: .leading, spacing: 6.0) {
+            VStack(spacing: 6.0) {
                 Text(article.title)
                     .font(.headline)
                     .lineLimit(3)
@@ -64,7 +64,7 @@ struct ArticleRowView: View {
                     }
                     .buttonStyle(.bordered)
 
-
+                    
                 }
                 .padding(.vertical)
             }
@@ -84,6 +84,6 @@ struct ArticleRowView: View {
 
 struct ArticleRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ArticleRowView(article: ArticlePreview.article)
+        ArticleRowView(article: ArticlePreview.articles[0])
     }
 }
