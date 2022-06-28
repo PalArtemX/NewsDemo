@@ -70,6 +70,10 @@ extension SearchTabView {
         case .empty:
             if !articleSearchVM.searchQuery.isEmpty {
                 ProgressView()
+            } else if !articleSearchVM.history.isEmpty {
+                SearchHistoryListView(articleSearchVM: _articleSearchVM) { newValue in
+                    articleSearchVM.searchQuery = newValue
+                }
             } else {
                 EmptyPlaceholderView(text: "Type your query to search from NewsAPI", image: Image(systemName: "magnifyingglass"))
             }
@@ -88,6 +92,11 @@ extension SearchTabView {
     
     // MARK: search()
     private func search() {
+        let searchQuery = articleSearchVM.searchQuery.trimmingCharacters(in: .whitespacesAndNewlines)
+        if !searchQuery.isEmpty {
+            articleSearchVM.addHistory(searchQuery)
+        }
+        
         Task {
             await articleSearchVM.searchArticle()
         }
