@@ -16,6 +16,12 @@ struct MainView: View {
                     Label("News", systemImage: "newspaper")
                 }
             
+            // MARK: - SearchTabView
+            SearchTabView()
+                .tabItem {
+                    Label("Search", systemImage: "magnifyingglass")
+                }
+            
             // MARK: - BookmarkTabView
             BookmarkTabView()
                 .tabItem {
@@ -39,5 +45,6 @@ struct MainView_Previews: PreviewProvider {
         MainView()
             .environmentObject(ArticleNewsVM())
             .environmentObject(ArticleBookmarkVM.shared)
+            .environmentObject(ArticleSearchVM())
     }
 }
