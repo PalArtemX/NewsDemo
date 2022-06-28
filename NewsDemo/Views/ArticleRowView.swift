@@ -89,7 +89,7 @@ struct ArticleRowView: View {
 struct ArticleRowView_Previews: PreviewProvider {
     static var previews: some View {
         ArticleRowView(article: ArticlePreview.articles[0])
-            .environmentObject(ArticleBookmarkVM())
+            .environmentObject(ArticleBookmarkVM.shared)
     }
 }
 

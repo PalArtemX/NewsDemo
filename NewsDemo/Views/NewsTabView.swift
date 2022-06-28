@@ -48,7 +48,7 @@ struct NewsTabView_Previews: PreviewProvider {
     static var previews: some View {
         NewsTabView()
             .environmentObject(ArticleNewsVM(articles: ArticlePreview.articles, selectedCategory: .general))
-            .environmentObject(ArticleBookmarkVM())
+            .environmentObject(ArticleBookmarkVM.shared)
     }
 }
 

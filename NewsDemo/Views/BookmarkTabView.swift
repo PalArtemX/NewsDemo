@@ -34,7 +34,7 @@ struct BookmarkTabView: View {
 struct BookmarkTabView_Previews: PreviewProvider {
     static var previews: some View {
         BookmarkTabView()
-            .environmentObject(ArticleBookmarkVM())
+            .environmentObject(ArticleBookmarkVM.shared)
     }
 }
 

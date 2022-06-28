@@ -38,6 +38,6 @@ struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
             .environmentObject(ArticleNewsVM())
-            .environmentObject(ArticleBookmarkVM())
+            .environmentObject(ArticleBookmarkVM.shared)
     }
 }
