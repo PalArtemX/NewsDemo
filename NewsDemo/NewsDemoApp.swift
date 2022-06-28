@@ -10,11 +10,13 @@ import SwiftUI
 @main
 struct NewsDemoApp: App {
     @StateObject var articleNewVM = ArticleNewsVM()
+    @StateObject var articleBookmarkVM = ArticleBookmarkVM()
     
     var body: some Scene {
         WindowGroup {
             MainView()
                 .environmentObject(articleNewVM)
+                .environmentObject(articleBookmarkVM)
         }
     }
 }

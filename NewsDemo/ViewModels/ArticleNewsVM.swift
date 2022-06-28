@@ -27,18 +27,20 @@ class ArticleNewsVM: ObservableObject {
     // MARK: - Functions
     // MARK: loadArticles
     func loadArticles() async {
-        if Task.isCancelled { return }
-        phase = .empty
+        phase = .success(ArticlePreview.articles)
         
-        do {
-            let articles = try await newAPI.fetch(from: fetchTaskToken.category)
-            if Task.isCancelled { return }
-            phase = .success(articles)
-        } catch {
-            if Task.isCancelled { return }
-            print("⚠️ Error: loadArticles() \(error.localizedDescription)")
-            print(String(describing: error))
-            phase = .failure(error)
-        }
+//        if Task.isCancelled { return }
+//        phase = .empty
+//
+//        do {
+//            let articles = try await newAPI.fetch(from: fetchTaskToken.category)
+//            if Task.isCancelled { return }
+//            phase = .success(articles)
+//        } catch {
+//            if Task.isCancelled { return }
+//            print("⚠️ Error: loadArticles() \(error.localizedDescription)")
+//            print(String(describing: error))
+//            phase = .failure(error)
+//        }
     }
 }
