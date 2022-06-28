@@ -9,16 +9,20 @@ import SwiftUI
 
 struct BookmarkTabView: View {
     @EnvironmentObject var articleBookmarkVM: ArticleBookmarkVM
+    @State var searchText = ""
     
     var body: some View {
+        let articles = articles
+        
         NavigationStack {
-            ArticleListView(articles: articleBookmarkVM.bookmarks)
+            ArticleListView(articles: articles)
                 .overlay {
-                    overlayView(isEmpty: articleBookmarkVM.bookmarks.isEmpty)
+                    overlayView(isEmpty: articles.isEmpty)
                 }
             
                 .navigationTitle("Saved Articles")
         }
+        .searchable(text: $searchText)
     }
 }
 
@@ -47,5 +51,16 @@ extension BookmarkTabView {
         if isEmpty {
             EmptyPlaceholderView(text: "No Saved Articles", image: Image(systemName: "bookmark"))
         }
+    }
+    
+    private var articles: [Article] {
+        if searchText.isEmpty {
+            return articleBookmarkVM.bookmarks
+        }
+        return articleBookmarkVM.bookmarks
+            .filter {
+                $0.title.lowercased().contains(searchText.lowercased()) ||
+                $0.descriptionText.lowercased().contains(searchText.lowercased())
+            }
     }
 }
