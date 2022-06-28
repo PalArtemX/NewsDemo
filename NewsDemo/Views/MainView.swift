@@ -10,9 +10,16 @@ import SwiftUI
 struct MainView: View {
     var body: some View {
         TabView {
+            // MARK: - NewsTabView
             NewsTabView()
                 .tabItem {
                     Label("News", systemImage: "newspaper")
+                }
+            
+            // MARK: - BookmarkTabView
+            BookmarkTabView()
+                .tabItem {
+                    Label("Saved", systemImage: "bookmark")
                 }
         }
     }
@@ -31,5 +38,6 @@ struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
             .environmentObject(ArticleNewsVM())
+            .environmentObject(ArticleBookmarkVM())
     }
 }
